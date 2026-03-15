@@ -1,5 +1,5 @@
-import os from "os";
-import config from "../config";
+import os from 'os';
+import config from '../config';
 
 const getSystemHealth = () => {
   return {
