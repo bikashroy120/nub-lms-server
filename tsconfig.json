@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "target": "ES2022", // কম্পাইল হবে ES2022 compatible JS এ
+        "module": "CommonJS", // Node.js এর জন্য CommonJS module system
+        "lib": ["ES2022"], // modern JS features
+        "outDir": "./dist", // কম্পাইলড ফাইল কোথায় যাবে
+        "rootDir": "./src", // source code root
+        "strict": true, // সব strict type checking চালু
+        "esModuleInterop": true, // default import সহ interop
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true, // library type check skip (speed)
+        "resolveJsonModule": true, // JSON import করা যাবে
+        "noImplicitAny": true, // যেকোন implicit any error দেখাবে
+        "moduleResolution": "node", // Node-style module resolution
+        "types": ["node"], // Node.js global types
+        "sourceMap": true // debugging এর জন্য source maps
+    },
+    "include": ["src/**/*.ts"], // কোন ফাইল কম্পাইল হবে
+    "exclude": ["node_modules", "dist"] // exclude folder
+}
