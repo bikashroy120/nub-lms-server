@@ -1,8 +1,9 @@
-import express, { Application } from "express";
+import express, { Application, NextFunction, Response, Request } from "express";
 import cors from "cors";
 import compression from "compression";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
+import globalErrorHandler from "./app/middlewares/globalErrorHandler";
 
 const app: Application = express();
 
@@ -22,6 +23,21 @@ app.use("/api", limiter);
 
 app.get("/", (req, res) => {
   res.send("Your server is production ready! 🚀");
+});
+
+app.use(globalErrorHandler);
+
+app.use((req: Request, res: Response, next: NextFunction) => {
+  res.status(404).json({
+    success: false,
+    message: "API route not found!",
+    errorMessages: [
+      {
+        path: req.originalUrl,
+        message: "This URL does not exist. Please check the URL and try again.",
+      },
+    ],
+  });
 });
 
 export default app;
