@@ -13,15 +13,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000,
-    max: 100,
-    message: "অতিরিক্ত রিকোয়েস্ট পাঠিয়েছেন, কিছুক্ষণ পর চেষ্টা করুন।",
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  message: "অতিরিক্ত রিকোয়েস্ট পাঠিয়েছেন, কিছুক্ষণ পর চেষ্টা করুন।",
 });
 
 app.use("/api", limiter);
 
 app.get("/", (req, res) => {
-    res.send("Your server is production ready! 🚀");
+  res.send("Your server is production ready! 🚀");
 });
 
 export default app;
