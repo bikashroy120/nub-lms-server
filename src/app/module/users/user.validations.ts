@@ -7,3 +7,5 @@ export const createUserSchema = z.object({
     password: z.string().min(4),
   }),
 });
+
+export type CreateUserBody = z.infer<typeof createUserSchema>['body'];
