@@ -1,9 +1,15 @@
+/* eslint-disable prettier/prettier */
 import express from 'express';
+import { userController } from './user.controller';
+import validateRequest from '../../middlewares/validateRequest';
+import { createUserSchema } from './user.validations';
 
 const router = express.Router();
 
-router.get('/user', (req, res) => {
-  res.send('Login route');
-});
+router.post(
+  '/user',
+  validateRequest(createUserSchema),
+  userController.createUser
+);
 
 export default router;
