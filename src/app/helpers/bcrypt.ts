@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import bcrypt from 'bcryptjs';
 
 export const hashPassword = async (password: string) => {
